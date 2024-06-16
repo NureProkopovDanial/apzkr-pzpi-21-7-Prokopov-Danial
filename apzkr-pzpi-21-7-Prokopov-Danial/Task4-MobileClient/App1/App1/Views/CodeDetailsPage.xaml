@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.CodeDetailsPage"
+             Title="Baggage details">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Id: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding BaggageId}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Passenger: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Passenger.LastName}" FontSize="20"/>
+            <Label Text="{Binding Passenger.FirstName}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Flight number: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Flight.FlightNumber}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Weight: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Weight}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Width: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Width}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Height: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Height}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Depth: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Depth}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout Padding="10" Orientation="Horizontal">
+            <Label Text="Description: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Description}" FontSize="20"/>
+        </StackLayout>
+            <StackLayout>
+                <Image x:Name="BaggageImage" 
+                       Aspect="AspectFill" 
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.CodesPage"
+             Title="Baggages">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="searchBar"
+                       Placeholder="Search by Id, First Name or Last Name"
+                       TextChanged="OnSearchBarTextChanged"/>
+            <ListView x:Name="baggagesListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Id" FontSize="18" />
+                                    <Label Text="{Binding BaggageId}" FontSize="18" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Passenger: " TextColor="Gray" FontSize="16" />
+                                    <Label Text="{Binding Passenger.FirstName}" FontSize="16" />
+                                    <Label Text="{Binding Passenger.LastName}" FontSize="16" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

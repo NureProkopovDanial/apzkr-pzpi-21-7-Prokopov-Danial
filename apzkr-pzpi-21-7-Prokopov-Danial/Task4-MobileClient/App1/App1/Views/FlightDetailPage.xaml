@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.FlightDetailPage"
+             Title="Flight Details">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Flight number: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding FlightNumber}" FontSize="20"/>
+
+            <Label Text="Departure airport address: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding DepartureAirport.Address}" FontSize="20"/>
+
+            <Label Text="Arrival airport address: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding ArrivalAirport.Address}" FontSize="20"/>
+            
+            <Label Text="Departure date time: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding DepartureDateTime}" FontSize="20"/>
+
+            <Label Text="Arrival date time: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding ArrivalDateTime}" FontSize="20"/>
+
+            <Label Text="Aircraft model: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Aircraft.ModelName}" FontSize="20"/>
+
+            <Label Text="Notes: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding Notes}" FontSize="20"/>
+
+            <Label Text="Count of sold tickets: " FontSize="20" FontAttributes="Bold"/>
+            <Label Text="{Binding TicketCount}" FontSize="20"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

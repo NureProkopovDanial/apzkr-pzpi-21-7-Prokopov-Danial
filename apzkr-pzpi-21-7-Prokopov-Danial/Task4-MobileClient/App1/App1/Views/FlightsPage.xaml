@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.FlightsPage"
+             Title="Flights">
+    <ContentPage.Content>
+        <ListView x:Name="flightsListView" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Flight number: " FontSize="18" />
+                                <Label Text="{Binding FlightNumber}" FontSize="18" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Departure airport address: " TextColor="Gray" FontSize="16" />
+                                <Label Text="{Binding DepartureAirport.Address}" FontSize="16" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Arrival airposrt address: " TextColor="Gray" FontSize="16" />
+                                <Label Text="{Binding ArrivalAirport.Address}" FontSize="16" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

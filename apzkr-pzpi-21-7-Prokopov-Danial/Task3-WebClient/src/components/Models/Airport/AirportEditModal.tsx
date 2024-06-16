@@ -1,0 +1,109 @@
+import React, { useEffect } from 'react'
+import { Button, Modal } from 'react-bootstrap'
+import { Controller, useForm } from 'react-hook-form'
+import { editAirport } from '../../../http/airportApi';
+import { IAirport } from '../../../interfaces/IAirport';
+import { IAirportCreateData } from './AirportCreateModal';
+
+interface IProps {
+    show: boolean,
+    onHide: () => void,
+    fetch: () => void,
+    item?: IAirport,
+}
+  
+  export interface IAirportEditData extends IAirportCreateData {
+    airportId: number,
+  }
+
+export const AirportEditModal = ({ show, onHide, item, fetch }: IProps) => {
+    const {
+        control,
+        handleSubmit,
+        reset,
+        formState: { errors },
+      } = useForm<IAirportEditData>();
+    
+      useEffect(() => {
+        if (item) {
+          reset({
+            ...item
+          });
+        }
+      }, [item, reset]);
+          
+      const onSubmit = async (data: IAirportEditData) => {
+        await editAirport(data.airportId, data)
+          .then(() => {
+            onHide();
+            fetch();
+          })
+          .catch(() => alert("Error"));
+      };
+
+    return (
+        <Modal show={show} onHide={onHide}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal title</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <div
+                  asp-validation-summary="ModelOnly"
+                  className="text-danger"
+                ></div>
+                 <div className="form-group">
+                  <label className="control-label">Name</label>
+                  <Controller
+                    control={control}
+                    name={"name"}
+                    rules={{
+                      required: "enter name",
+                    }}
+                    render={({ field }) => (
+                      <input className="form-control" {...field} />
+                    )}
+                  ></Controller>
+                  <p style={{ color: "red" }}>{errors.name?.message}</p>
+                </div>
+                 <div className="form-group">
+                  <label className="control-label">Address</label>
+                  <Controller
+                    control={control}
+                    name={"address"}
+                    rules={{
+                      required: "enter address",
+                    }}
+                    render={({ field }) => (
+                      <input className="form-control" {...field} />
+                    )}
+                  ></Controller>
+                  <p style={{ color: "red" }}>{errors.address?.message}</p>
+                </div>
+                 <div className="form-group">
+                  <label className="control-label">Phone</label>
+                  <Controller
+                    control={control}
+                    name={"phone"}
+                    rules={{
+                      required: "enter phone",
+                    }}
+                    render={({ field }) => (
+                      <input className="form-control" {...field} />
+                    )}
+                  ></Controller>
+                  <p style={{ color: "red" }}>{errors.phone?.message}</p>
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={onHide}>
+                  Close
+                </Button>
+                <Button variant="primary" type="submit">
+                  Save
+                </Button>
+              </Modal.Footer>
+            </form>
+          </Modal>
+      )
+}
