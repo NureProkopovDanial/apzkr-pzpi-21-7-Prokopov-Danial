@@ -262,3 +262,4 @@ Newtonsoft.Json Documentation [Електронник ресурс]: https://www
 
 Visual Studio Documentation [Електронник ресурс]: https://docs.microsoft.com/en-us/visualstudio/ . (дата звернення 01.05.2024)
 
+Посилання на відеозапис на YouTube:https://youtu.be/eT8xsN1-Q3U
